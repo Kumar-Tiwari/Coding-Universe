@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} Practise {% endblock %}
+
+
+{% block body %}
+<section id="registration-form">
+    <div class="container">
+      {% if question != "False" %}
+        <div class="container">
+            <p><b>You have to grow on your own . Compare to your past and present </b></p>
+          <hr>
+          <div class="row">
+            <div class="col-md-2 mb-3">
+                <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{question.question_1_titile}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Input</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Output</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#sample" role="tab" aria-controls="contact" aria-selected="false">Sample</a>
+          </li>
+        </ul>
+            </div>
+            <!-- /.col-md-4 -->
+                <div class="col-md-10">
+              <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h2>{{question.question_1_titile}}</h2>
+            <p>{{question.question_1_description}}</p>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <h2>Input</h2>
+            <p>{{question.question_1_input}}</p>
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <h2>Output</h2>
+            <p>{{question.question_1_output}}</p>
+          
+          </div>
+          <div class="tab-pane fade" id="sample" role="tabpanel" aria-labelledby="contact-tab">
+            <h2>Sample</h2>
+
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Input</th>
+                  <th scope="col">Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>{{question.question_1_sample_2}}</td>
+                  <td>{{question.question_1_sample_output_2}}</td>
+                </tr>
+                <tr>
+                  <td>{{question.question_1_sample_1}}</td>
+                  <td>{{question.question_1_sample_output_1}}</td>
+                </tr>
+                <tr>
+                  <td>{{question.question_1_sample_3}}</td>
+                  <td>{{question.question_1_sample_output_3}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-left">{{question.question_1_sample_explain}}</p>
+            </div>
+          
+        </div>
+            </div>
+            <!-- /.col-md-8 -->
+          </div>
+          <br>
+          <br>
+        </div>
+        <!-- /.container -->
+        {% else %}
+          <div class="jumbotron"> 30 Days trial completed please refer to result section for your score and your position.</div>
+        {% endif %}
+
+        <form method="POST" action='result/'>
+          {% csrf_token %}
+          <div class="form-group green-border-focus">
+          <label for="exampleFormControlTextarea5"><b>Submit Your Solution:</b></label>
+          {{form1.solution}}
+          </div>
+          {{form1.language}}
+          <br>
+          <br>
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+        </div>
+</section>
+
+{% endblock %}

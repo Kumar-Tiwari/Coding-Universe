@@ -1,0 +1,11 @@
+#main-footer {
+    clear: both;
+    height:40;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: #444;
+    color: #fff;
+    padding: 5px;
+}

@@ -1,0 +1,85 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="registration for ECAST">
+    <meta name="keywords" content="registration,ECAST,new member">
+    <link href="{% static 'css/base/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base/activate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base/style1.css' %}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
+     <title>{% block title %}Base{% endblock %}</title>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top" id="navbar">
+            <a class="navbar-brand logo1" href="{% url 'home' %}">
+              <img src="{% static 'Images/logo.jpg' %}" width="30" height="30" alt="logo" class="rounded-circle">
+              Coding Universe
+            </a>
+            <a class="navbar-brand logo3" href="#">
+              Events
+            </a>
+            {% if verify == "True" %}
+            <a class="navbar-brand logo3" href="{% url 'practise' %}">
+              Practise
+            </a>
+            <form class="form-inline " role="search" action='/s/'>
+              <input class="form-control form-control-sm ml-3 w-75 " type="text" placeholder="Search Profile" aria-label="Search" name='k'>
+            </form>
+            {% endif %}
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbar-list-4">
+              <ul class="navbar-nav ml-auto ">
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle logo" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    
+                    {% if verify == "True" %}
+                    {{p1.Student_ID}}
+                    <img src="/media/{{p1.Profile_picture}}" width="30" height="30" class="rounded-circle">
+                    {% elif verify != "True" %}
+                    <img src="{% static 'Images/icon.png' %}" width="30" height="30" class="rounded-circle">
+                
+                    {% endif %}
+                    
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% if verify == "True" %}
+                    <!-- <a class="dropdown-item" href="{% url 'result' %}">Result</a> -->
+                    <a class="dropdown-item" href="{% url 'profile' u1.username %}"> Profile</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                    {% elif verify != "True" %}
+                    <a class="dropdown-item" href="{% url 'signup' %}"> Signup</a>
+                    <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+                    {% endif %}
+                  </div>
+                </li>   
+              </ul>
+            </div>
+          </nav>
+    </header>
+          {% block body %}
+
+
+          {% endblock %}
+
+    <div>
+        <footer id="main-footer">
+            <p>Coding Universe &copy; 2020, Thapathali campus.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

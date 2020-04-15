@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block title %} {{p2.first_name}} {{p2.last_name}}{% endblock %}
+
+
+
+
+{% block body %}
+    
+
+<section id="registration-form">
+    <div class="container">   
+        <div  class="name">
+                <img src="/media/{{p2.Profile_picture}}" width="120" height="120" class="rounded-circle">
+        </div>
+        <div class="name">
+                <h5>{{p2.first_name}} {{p2.last_name}}</h5>
+        </div>
+        <div class="jumbotron text-center">
+                <p align="left"><b>Student ID:</b> {{p2.Student_ID}}</p>
+                <p align="left"><b>Email:</b> {{u2.email}}</p>
+                <p align="left"><b>Gender:</b> {% if p2.Gender == "M" %} Male {% elif p2.Gender != "M" %} Female {% endif %}</p>
+                <p align="left"><b>Phone:</b> {{p2.phone}}</p><br>
+                <p><h4>{{p2.Description}}</h4></p>
+        </div>
+        </div>
+</section>
+
+
+{% endblock %}

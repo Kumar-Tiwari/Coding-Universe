@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} Welcome to Practise {% endblock %}
+
+
+
+
+{% block body %}
+
+
+<section id="registration-form">
+    <div class="container">   
+        <b><p align="center">Welcome to the practise section</p></b>
+
+        <p class="text-left">Rules to follow :</p>
+        <br>
+
+        <p align="left">1. After you consider this term true you will get access to practise section</p><br>
+        <p align="left">2. Every 24 hour you will get 3-5 question </p><br>
+        <p align="left">3. You have to submit the answer with in next 24 hours in Result section </p><br>
+        <p align="left">4. Failure in submission of question may lead to 0 points whereas successfull submission of questions lead to certain points </p><br>
+        <p align="left">5. Each question in this section carry equal marks</p><br>
+
+        <form method="POST">
+                {% csrf_token %}
+        <div class="custom-control custom-checkbox">
+            {{form.checkbox}}
+            <label class="custom-control-label" for="customCheck">I agree with following Rules</label>
+        </div>
+        <div class="text-right">
+        <button type="submit" class="btn btn-primary" align="right">Agree</button>
+        </div>
+
+        </form>
+    </div>
+</section>       
+
+
+
+{% endblock %}

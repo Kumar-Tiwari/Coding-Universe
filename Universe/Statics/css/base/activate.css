@@ -1,0 +1,12 @@
+#register .pin {
+    max-width: 768px;
+    margin: auto;
+    background-color: #eee;
+    align-content: center;
+    padding: 100px 50px;
+}
+
+#register .pin .center-text {
+    padding-left: 22%;
+    font-size: xx-large;
+}

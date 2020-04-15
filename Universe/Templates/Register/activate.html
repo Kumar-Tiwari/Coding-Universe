@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="registration for ECAST">
+    <meta name="keywords" content="registration,ECAST,new member">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/login/style1.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Activate</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h3 class="logo2">Activate
+                </h1>
+            </div>
+        </nav>
+    </header>
+    <section id="registration-form">
+        <div class="container">
+            <h2><span class="center-text">Verify Your Email:</span></h2>
+                <p> Use the Authentication Key Provided to you in your mailing email address.</p>
+                
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {{error}}
+                <div class="form-group">
+                   <i><h6> <label for="Activation_key">Activation Key: </label></i></u></h6>
+                    {{form.activation_key}}
+                </div>
+
+                <p>Please Read The Following Terms And Conditions:</p>
+                1.To go to the IDE section one's e-mail must be verified
+                <br><br>
+                2.If the verification of e-mail is not done up to 24 hrs then the content will be deleted.
+                <br><br>
+                3.Practice section is done according to level and there is timestamp as well
+                <br><br>
+                4.Email Subscription will be auto-enabled if the provided email is from the college 
+                <br>
+                For example:
+                if the email contains @tcioe.edu.np and get verified will get the subscription .
+                <br>
+                <br>
+                <br><div align="right">
+                <button type="submit" class="btn btn-primary">Activate</button>
+                </div>
+                </form>
+        </div>
+    </section> 
+    <div>
+        <footer id="main-footer">
+            <p>Coding Universe &copy; 2020, Thapathali campus.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
